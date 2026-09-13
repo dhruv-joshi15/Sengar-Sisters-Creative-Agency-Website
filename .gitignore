@@ -1,0 +1,13 @@
+node_modules
+.next
+out
+.env*
+*.tsbuildinfo
+
+test-results
+playwright-report
+
+.DS_Store
+.codex/
+.agents/
+npm-debug.log*

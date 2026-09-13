@@ -1,0 +1,11 @@
+'use client';
+import {useEffect,useRef,useState} from 'react';
+import {AnimatePresence,motion,useInView} from 'framer-motion';
+import {disciplines} from '@/data/siteData';
+import {useMotionPreference} from '@/hooks/useMotionPreference';
+export function KineticStage(){
+ const ref=useRef<HTMLElement>(null);const visible=useInView(ref,{amount:.3});const reduced=useMotionPreference();const [index,setIndex]=useState(0),[hovered,setHovered]=useState(false),[focused,setFocused]=useState(false),[hidden,setHidden]=useState(false);
+ useEffect(()=>{const change=()=>setHidden(document.hidden);change();document.addEventListener('visibilitychange',change);return()=>document.removeEventListener('visibilitychange',change)},[]);
+ useEffect(()=>{if(reduced||!visible||hovered||focused||hidden)return;const timer=setInterval(()=>setIndex(i=>(i+1)%disciplines.length),3000);return()=>clearInterval(timer)},[reduced,visible,hovered,focused,hidden,index]);
+ return <section ref={ref} className={`kinetic-stage ${reduced?'is-reduced':''}`} aria-label="Our creative disciplines" onMouseEnter={()=>setHovered(true)} onMouseLeave={()=>setHovered(false)} onFocusCapture={()=>setFocused(true)} onBlurCapture={e=>{if(!e.currentTarget.contains(e.relatedTarget))setFocused(false)}}><div className="container kinetic-inner"><div className="kinetic-caption"><span>THE CREATIVE PRACTICE</span><span>ONE STUDIO. MANY POSSIBILITIES.</span></div><div className="kinetic-heading" aria-hidden="true"><span>We create</span><div className="kinetic-word-window"><AnimatePresence initial={false} mode="popLayout"><motion.em key={index} initial={{y:'105%',opacity:0}} animate={{y:0,opacity:1}} exit={{y:'-105%',opacity:0}} transition={{duration:.65,ease:[.22,1,.36,1]}}>{disciplines[index]}<span>.</span></motion.em></AnimatePresence></div><span className="kinetic-counter">{String(index+1).padStart(2,'0')} <i>/ 05</i></span></div><ul className="kinetic-static">{disciplines.map(d=><li key={d}>{d}</li>)}</ul><div className="discipline-controls" role="group" aria-label="Choose a discipline">{disciplines.map((d,i)=><button key={d} onClick={()=>setIndex(i)} aria-pressed={index===i}><span>{String(i+1).padStart(2,'0')}</span>{d}<i/></button>)}</div></div></section>
+}

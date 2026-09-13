@@ -1,0 +1,12 @@
+'use client';
+import {useState,useCallback,useEffect,useRef} from 'react';
+import {AnimatePresence,motion,useTransform} from 'framer-motion';
+import {ChevronDown,ArrowUpRight} from 'lucide-react';
+import {chapters} from '@/data/siteData';
+import {useChapters} from '@/hooks/useChapters';
+import {Modal} from './UI';
+export function ChapterGuide({scrolled}:{scrolled:boolean}){
+ const {active,positions,progress}=useChapters();const [open,setOpen]=useState(false);const close=useCallback(()=>setOpen(false),[]);const percentage=useRef<HTMLSpanElement>(null);const thumb=useTransform(progress,n=>`${n*100}%`);const current=chapters.findIndex(c=>c.id===active);
+ useEffect(()=>{const update=(n:number)=>{if(percentage.current)percentage.current.textContent=`${Math.round(n*100)}%`};update(progress.get());return progress.on('change',update)},[progress]);
+ return <><nav className="chapter-rail" aria-label="Chapter navigation"><div className="chapter-rail-heading">THE JOURNEY</div><div className="chapter-rail-track"><motion.span className="chapter-fill" style={{scaleY:progress}} aria-hidden="true"/><motion.span className="chapter-thumb" style={{top:thumb}} aria-hidden="true"/>{chapters.map((c,i)=><a key={c.id} href={`#${c.id}`} style={{top:`${positions[i]*100}%`}} className={active===c.id?'chapter-marker active':'chapter-marker'} aria-current={active===c.id?'location':undefined} aria-label={`Chapter ${i+1}: ${c.label}`}><i/><span>{c.label}</span></a>)}</div><span className="chapter-current">{String(current+1).padStart(2,'0')} / {chapters[current].label}</span></nav><div className={`chapter-mobile ${scrolled?'scrolled':''}`}><motion.i className="chapter-mobile-progress" style={{scaleX:progress}} aria-hidden="true"/><button onClick={()=>setOpen(true)} aria-label="Open chapter list" aria-expanded={open}><span>THE JOURNEY</span><strong>{String(current+1).padStart(2,'0')} / {chapters[current].label}</strong><ChevronDown size={14}/></button><span ref={percentage} className="chapter-percentage">0%</span></div><AnimatePresence>{open&&<Modal label="Chapters" onClose={close}><nav className="mobile-menu chapter-list" aria-label="All chapters"><span className="eyebrow">FIND YOUR NEXT CHAPTER</span>{chapters.map((c,i)=><a key={c.id} href={`#${c.id}`} onClick={close} aria-current={active===c.id?'location':undefined}><small>{String(i+1).padStart(2,'0')}</small>{c.label}<ArrowUpRight size={20}/></a>)}</nav></Modal>}</AnimatePresence></>
+}

@@ -1,0 +1,15 @@
+'use client';
+import {useCallback,useEffect,useRef,useState} from 'react';
+import {AnimatePresence,motion} from 'framer-motion';
+import {Moon,Sun,Monitor,Check,ChevronDown} from 'lucide-react';
+type Theme='dark'|'light'|'system';
+const choices=[{id:'dark' as const,label:'Dark',Icon:Moon},{id:'light' as const,label:'Light',Icon:Sun},{id:'system' as const,label:'System default',Icon:Monitor}];
+export function ThemeToggle(){
+ const [selected,setSelected]=useState<Theme>('dark'),[open,setOpen]=useState(false);const root=useRef<HTMLDivElement>(null);const trigger=useRef<HTMLButtonElement>(null);const current=choices.find(t=>t.id===selected)!;
+ const apply=useCallback((theme:Theme)=>{document.documentElement.dataset.themePreference=theme;document.documentElement.dataset.theme=theme==='system'?(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):theme},[]);
+ useEffect(()=>{const pref=document.documentElement.dataset.themePreference;setSelected(pref==='light'||pref==='system'?pref:'dark')},[]);
+ useEffect(()=>{const query=matchMedia('(prefers-color-scheme: dark)');const change=()=>{if(selected==='system')apply('system')};query.addEventListener('change',change);return()=>query.removeEventListener('change',change)},[selected,apply]);
+ useEffect(()=>{if(!open)return;const click=(e:PointerEvent)=>{if(!root.current?.contains(e.target as Node))setOpen(false)};const key=(e:KeyboardEvent)=>{if(e.key==='Escape'){setOpen(false);trigger.current?.focus()}};document.addEventListener('pointerdown',click);document.addEventListener('keydown',key);root.current?.querySelector<HTMLButtonElement>('[aria-checked="true"]')?.focus();return()=>{document.removeEventListener('pointerdown',click);document.removeEventListener('keydown',key)}},[open]);
+ const choose=(theme:Theme)=>{setSelected(theme);apply(theme);try{localStorage.setItem('sengar-theme',theme)}catch{}setOpen(false);trigger.current?.focus()};
+ return <div className="theme-control" ref={root}><button ref={trigger} className="theme-trigger" aria-label="Choose colour theme" aria-haspopup="menu" aria-expanded={open} onClick={()=>setOpen(!open)}><current.Icon size={17}/><span className="theme-name">{current.label}</span><ChevronDown size={12}/></button><AnimatePresence>{open&&<motion.div className="theme-options" role="menu" aria-label="Colour theme" initial={{opacity:0,y:-6,scale:.96}} animate={{opacity:1,y:0,scale:1}} exit={{opacity:0,y:-6}} transition={{duration:.2}} onKeyDown={e=>{if(!['ArrowDown','ArrowUp','Home','End'].includes(e.key))return;e.preventDefault();const buttons=[...e.currentTarget.querySelectorAll<HTMLButtonElement>('button')];const index=buttons.indexOf(document.activeElement as HTMLButtonElement);buttons[e.key==='Home'?0:e.key==='End'?2:(index+(e.key==='ArrowDown'?1:-1)+3)%3]?.focus()}}>{choices.map(({id,label,Icon})=><button key={id} role="menuitemradio" aria-checked={selected===id} onClick={()=>choose(id)}><Icon size={16}/><span>{label}</span>{selected===id&&<Check size={13}/>}</button>)}</motion.div>}</AnimatePresence></div>
+}
