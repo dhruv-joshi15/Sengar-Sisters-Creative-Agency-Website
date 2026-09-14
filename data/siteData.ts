@@ -1,5 +1,5 @@
-export const navigation = ['Home', 'About', 'Services', 'Work', 'Results', 'Process', 'Contact'];
-export const contact = { instagram: 'https://www.instagram.com/', email: 'hello@example.com', phone: '+910000000000', whatsapp: 'https://wa.me/910000000000' };
+export const navigation = ['Home', 'Worlds', 'About', 'Services', 'Work', 'Results', 'Process', 'Contact'];
+export const contact = { instagram: 'https://www.instagram.com/_sengarsisters/', instagramHandle:'@_sengarsisters', email: 'hello@example.com', phone: '+910000000000', whatsapp: 'https://wa.me/910000000000' };
 export const sisters: {name:string;role:string;bio:string;art:string;image?:string;instagram?:string}[] = [
  {name:'Aditi Sengar',role:'Co-founder · Strategy & storytelling',bio:'The bigger picture, the little details. Aditi brings a thoughtful eye to brand strategy and finds the story at the heart of every idea.',art:'portrait-one',image:'/images/aditi-sengar.jpg'},
  {name:'Apoorva Sengar',role:'Co-founder · Visuals & creative direction',bio:'An instinct for the unexpected. Apoorva turns that story into a visual world, from the first moodboard to the final frame.',art:'portrait-two'}
@@ -30,13 +30,17 @@ export const caseStudy = {client:'Sunday Collective',handle:'sunday.collective',
 export const process = [{title:'Discover',copy:'We get curious. About your brand, your people and where you want to go.'},{title:'Create',copy:'We connect the dots. Strategy becomes concepts, shoots and a world of content.'},{title:'Publish',copy:'We find the right moment. Every piece, prepared for its platform and audience.'},{title:'Grow',copy:'We listen to what works. Learn, refine and keep building momentum.'}];
 export const testimonials = [{quote:'They understood the feeling we wanted before we had the words for it. Every detail felt so considered.',name:'Lifestyle brand founder'},{quote:'Our content finally feels like us. A thoughtful creative partnership from the very first conversation.',name:'Independent beauty brand'},{quote:'Fresh ideas, a beautiful eye, and so much care. They made the whole creative process feel effortless.',name:'Café & hospitality team'}];
 
-export const showreel: {video?:string;image?:string} = {};
+export const showreel: {video?:string;image?:string} = {image:'/images/instagram/food-pause.jpg'};
 
 export const chapters = [
- {id:'home',label:'Home'}, {id:'about',label:'About'},
+ {id:'home',label:'Home'}, {id:'worlds',label:'Worlds'}, {id:'about',label:'About'},
  {id:'services',label:'Services'}, {id:'work',label:'Work'},
  {id:'results',label:'Results'}, {id:'showreel',label:'Showreel'},
  {id:'process',label:'Process'}, {id:'testimonials',label:'Testimonials'},
  {id:'contact',label:'Contact'}
 ] as const;
 export const disciplines = ['stories','content','identities','films','connection'] as const;
+
+export const cameraStory={intro:'A little light. A considered angle. A story worth bringing into focus.',title:'From a spark of an idea',emphasis:'to something unforgettable.',description:'We’re Aditi & Apoorva. We turn brand strategy into thoughtful photography, films, identities and content — with a shared instinct for the unexpected.',cta:'Step into our creative world',steps:['Compose','Capture','Develop']};
+
+export const heroStory={eyebrow:'INDEPENDENT MINDS. SHARED IMAGINATION.',description:'We’re Aditi & Apoorva. A creative studio turning brand stories, good taste and life’s beautiful moments into something you can feel.'};

@@ -1,6 +1,7 @@
 import Image from 'next/image';
-export function Art({kind,className='',image,video,priority=false,alt,sizes}:{kind:string;className?:string;image?:string;video?:string;priority?:boolean;alt?:string;sizes?:string}){
+export function Art({kind,className='',image,video,priority=false,alt,sizes,loading}:{kind:string;className?:string;image?:string;video?:string;priority?:boolean;alt?:string;sizes?:string;loading?:'eager'|'lazy'}){
+ if(kind==='portrait-two'&&!image&&!video)return <div className={`art art-portrait-two ${className}`} role="img" aria-label="Apoorva Sengar portrait coming soon"><span className="portrait-placeholder-mark">A</span><span className="portrait-placeholder-line"/><span className="portrait-placeholder-caption">A CREATIVE MIND / AN ORIGINAL EYE</span></div>;
  if(video)return <div className={`art ${className}`}><video controls playsInline preload="metadata" poster={image}><source src={video} type={video.endsWith('.webm')?'video/webm':'video/mp4'}/></video></div>;
- if(image)return <div className={`art ${className}`}><Image src={image} alt={alt || kind} fill sizes={sizes || "(max-width: 768px) 100vw, 50vw"} priority={priority}/></div>;
+ if(image)return <div className={`art ${className}`}><Image src={image} alt={alt || kind} fill sizes={sizes || "(max-width: 768px) 100vw, 50vw"} priority={priority} loading={loading}/></div>;
  return <div className={`art art-${kind} ${className}`} aria-label={`Concept artwork: ${kind}`} role="img"><div className="art-light"/><div className="art-object"/><div className="art-object-secondary"/>{kind==='bottle'&&<div className="bottle-label">OLEA<span>THE DAILY RITUAL</span></div>}{kind==='coffee'&&<div className="coffee-type">sunday<span>take your time.</span></div>}{kind==='botanical'&&<div className="botanical-type">botanica<span>GROW INTO YOUR OWN.</span></div>}{kind==='fashion'&&<div className="fashion-type">MUSE<span>IN YOUR ELEMENT</span></div>}<div className="art-grain"/></div>
 }
