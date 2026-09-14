@@ -7,7 +7,7 @@ export type InstagramPost = {
  credit:string; likes?:number; comments?:number;
 };
 export type InstagramWorld = {
- id:'studio'|'food'|'weddings'; name:string; handle:string; url:string; avatar:string;
+ id:'studio'|'food'|'weddings'|'crispy'; name:string; handle:string; url:string; avatar:string;
  eyebrow:string; title:string; emphasis:string; description:string; note:string;
  services:string[]; posts:InstagramPost[];
  reaction:{handle:string;quote:string;postId:string};
@@ -21,9 +21,9 @@ export const instagramWorlds:InstagramWorld[]=[
   note:'Social media · Media production · Product photography · Influencer marketing. Based on the studio’s public profile; working across India.',
   services:['Brand storytelling','Product shoots','Creator-led reels'],
   posts:[
-   {id:'bags',title:'A bag for every occasion',kind:'reel',url:'https://www.instagram.com/thatcrispygirl/reel/DZC7CndtFUQ/',image:'/images/instagram/studio-bags.jpg',alt:'Apoorva presenting a collection of occasion bags in a boutique',credit:'@thatcrispygirl · Studio collaboration',likes:401,comments:8},
-   {id:'jewellery',title:'Jewellery with a personal touch',kind:'reel',url:'https://www.instagram.com/arham_imitation_raipur/reel/DWUCwHfMB8O/',image:'/images/instagram/studio-jewellery.jpg',alt:'A jewellery retailer presenting the handcrafted carnival collection',credit:'@arham_imitation_raipur × @_sengarsisters',likes:789,comments:155},
-   {id:'emotions',title:'An everyday kind of luxury',kind:'reel',url:'https://www.instagram.com/emotionsbydarshanofficial/reel/DYxMbonJWjR/',image:'/images/instagram/studio-emotions.jpg',alt:'Apoorva introducing imitation jewellery at Emotions by Darshan',credit:'@emotionsbydarshanofficial · Studio collaboration',likes:148,comments:19}
+   {id:'bags',title:'A bag for every occasion',kind:'reel',url:'https://www.instagram.com/thatcrispygirl/reel/DZC7CndtFUQ/',image:'/images/instagram/studio-bags-hd.jpg',alt:'Apoorva presenting a collection of occasion bags in a boutique',credit:'@thatcrispygirl · Studio collaboration',likes:402,comments:8},
+   {id:'jewellery',title:'Jewellery with a personal touch',kind:'reel',url:'https://www.instagram.com/arham_imitation_raipur/reel/DWUCwHfMB8O/',image:'/images/instagram/studio-jewellery-hd.jpg',alt:'A jewellery retailer presenting the handcrafted carnival collection',credit:'@arham_imitation_raipur × @_sengarsisters',likes:789,comments:155},
+   {id:'emotions',title:'An everyday kind of luxury',kind:'reel',url:'https://www.instagram.com/emotionsbydarshanofficial/reel/DYxMbonJWjR/',image:'/images/instagram/studio-emotions-hd.jpg',alt:'Apoorva introducing imitation jewellery at Emotions by Darshan',credit:'@emotionsbydarshanofficial · Studio collaboration',likes:148,comments:19}
   ],
   reaction:{handle:'@_tushar_dewangan',quote:'Apoorva day by day 📈 ⬆️\nEditing, bgm, voice 🔥🔥 Keep growing yrr ❤️',postId:'bags'}
  },
@@ -34,9 +34,9 @@ export const instagramWorlds:InstagramWorld[]=[
   note:'Food aesthetics through Aditi’s lens. Café discoveries, dining experiences and favourite frames from Raipur and beyond.',
   services:['Food photography','Café atmospheres','Hospitality reels'],
   posts:[
-   {id:'pause',title:'A moment at Pause',kind:'reel',url:'https://www.instagram.com/your_foodieredwine/reel/DSZQ2TQjD-b/',image:'/images/instagram/food-pause.jpg',alt:'A drink on a café table outside Pause, a modern coffee place',credit:'@your_foodieredwine · Pause',likes:37,comments:0},
-   {id:'underdoggs',title:'An atmosphere worth discovering',kind:'reel',url:'https://www.instagram.com/foodby_crispygirl/reel/DUbCvtFDAl_/',image:'/images/instagram/food-underdoggs.jpg',alt:'An atmospheric restaurant lounge with dark interiors, warm lighting and yellow seating',credit:'@foodby_crispygirl · Food-channel collaboration',likes:1341,comments:12},
-   {id:'koya',title:'A table worth coming back to',kind:'photo',url:'https://www.instagram.com/your_foodieredwine/p/DIThsQTsil6/',image:'/images/instagram/food-koya.jpg',alt:'Green dumplings in a bamboo steamer with dipping sauces at Koya',credit:'@your_foodieredwine · Koya, Raipur',likes:11,comments:2}
+   {id:'pause',title:'A moment at Pause',kind:'reel',url:'https://www.instagram.com/your_foodieredwine/reel/DSZQ2TQjD-b/',image:'/images/instagram/food-pause-hd.jpg',alt:'A drink on a café table outside Pause, a modern coffee place',credit:'@your_foodieredwine · Pause',likes:37,comments:0},
+   {id:'underdoggs',title:'An atmosphere worth discovering',kind:'reel',url:'https://www.instagram.com/foodby_crispygirl/reel/DUbCvtFDAl_/',image:'/images/instagram/food-underdoggs-hd.jpg',alt:'An atmospheric restaurant lounge with dark interiors, warm lighting and yellow seating',credit:'@foodby_crispygirl · Food-channel collaboration',likes:1341,comments:12},
+   {id:'koya',title:'A table worth coming back to',kind:'photo',url:'https://www.instagram.com/your_foodieredwine/p/DIThsQTsil6/',image:'/images/instagram/food-koya-hd.jpg',alt:'Green dumplings in a bamboo steamer with dipping sauces at Koya',credit:'@your_foodieredwine · Koya, Raipur',likes:11,comments:2}
   ],
   reaction:{handle:'@_yukti_ydv',quote:'The ambience yrr😍😍',postId:'underdoggs'}
  },
@@ -47,10 +47,24 @@ export const instagramWorlds:InstagramWorld[]=[
   note:'Wedding aesthetic reels, shot on iPhone and managed by Sengar Sisters. Candid moments, bridal details and celebrations, made for a beautifully personal diary.',
   services:['Wedding reels','Candid BTS','Bridal details'],
   posts:[
-   {id:'wedding-day',title:'The feeling before forever',kind:'reel',url:'https://www.instagram.com/_suri_la_rishta_/reel/DaXtIE6JR5M/',image:'/images/instagram/wedding-day.jpg',alt:'A bride in a floral outfit and a groom in ivory sharing a moment in a garden',credit:'@_suri_la_rishta_ · Shot by @shaadireelriwaz',likes:144,comments:0},
-   {id:'brotherhood',title:'The people who make the day',kind:'reel',url:'https://www.instagram.com/shaadireelriwaz/reel/DaqaeFyiCs3/',image:'/images/instagram/wedding-brotherhood.jpg',alt:'Two wedding guests in burgundy and black suits sharing a playful moment',credit:'@shaadireelriwaz · Wedding BTS',likes:139,comments:13},
-   {id:'bridal-details',title:'The details before “I do”',kind:'reel',url:'https://www.instagram.com/_suri_la_rishta_/reel/DaaClEetKuf/',image:'/images/instagram/wedding-details.jpg',alt:'Bridal jewellery arranged on a vivid pink outfit beside a golden Buddha sculpture',credit:'@_suri_la_rishta_ · Shot by @shaadireelriwaz',likes:160,comments:7}
+   {id:'wedding-day',title:'The feeling before forever',kind:'reel',url:'https://www.instagram.com/_suri_la_rishta_/reel/DaXtIE6JR5M/',image:'/images/instagram/wedding-day-hd.jpg',alt:'A bride in a floral outfit and a groom in ivory sharing a moment in a garden',credit:'@_suri_la_rishta_ · Shot by @shaadireelriwaz',likes:144,comments:0},
+   {id:'brotherhood',title:'The people who make the day',kind:'reel',url:'https://www.instagram.com/shaadireelriwaz/reel/DaqaeFyiCs3/',image:'/images/instagram/wedding-brotherhood-hd.jpg',alt:'Two wedding guests in burgundy and black suits sharing a playful moment',credit:'@shaadireelriwaz · Wedding BTS',likes:139,comments:13},
+   {id:'bridal-details',title:'The details before “I do”',kind:'reel',url:'https://www.instagram.com/_suri_la_rishta_/reel/DaaClEetKuf/',image:'/images/instagram/wedding-details-hd.jpg',alt:'Bridal jewellery arranged on a vivid pink outfit beside a golden Buddha sculpture',credit:'@_suri_la_rishta_ · Shot by @shaadireelriwaz',likes:160,comments:7}
   ],
   reaction:{handle:'@shritikakochar',quote:'Prettiest Bride🧿❤️',postId:'bridal-details'}
  }
+ ,{
+  id:'crispy',name:'The crispy edit',handle:'@foodby_crispygirl',url:'https://www.instagram.com/foodby_crispygirl/',avatar:'/images/instagram/crispy-avatar.jpg',
+  eyebrow:'A NEW PLACE. A NEW FEELING.',title:'Good places.',emphasis:'Even better stories.',
+  description:'Apoorva’s food channel is a little invitation to step out, look closer and find somewhere lovely. Café discoveries, dinner moods and dessert stops, told through atmospheric reels.',
+  note:'Apoorva Sengar’s food account, managed by @_sengarsisters. A personal eye on cafés, dining and new places around Raipur.',
+  services:['Café discoveries','Dining reels','Food & atmosphere'],
+  posts:[
+   {id:'soir',title:'An afternoon at Soir',kind:'reel',url:'https://www.instagram.com/foodby_crispygirl/reel/Da9t7uvMat3/',image:'/images/instagram/crispy-soir-hd.jpg',alt:'Warm parasols above wicker chairs and café tables surrounded by plants at Soir by the Lush',credit:'@foodby_crispygirl · Soir by the Lush',likes:118,comments:1},
+   {id:'sunday-dinner',title:'A Sunday worth romanticising',kind:'reel',url:'https://www.instagram.com/foodby_crispygirl/reel/DavWNP1MpGi/',image:'/images/instagram/crispy-sunday-hd.jpg',alt:'A colourful framed portrait and warm restaurant lighting from a Sunday café-hopping reel',credit:'@foodby_crispygirl · Sunday café hopping',likes:51,comments:0},
+   {id:'dessert-stops',title:'A little something sweet',kind:'reel',url:'https://www.instagram.com/foodby_crispygirl/reel/DX_Se63MY0s/',image:'/images/instagram/crispy-desserts-hd.jpg',alt:'Sculptural ivory ceiling pieces above the illuminated Rasvi restaurant sign',credit:'@foodby_crispygirl · Dessert-place hopping',likes:226,comments:0}
+  ],
+  reaction:{handle:'@gvicky76',quote:'Must try...',postId:'soir'}
+ }
 ];
+export const defaultInstagramWorld='crispy';

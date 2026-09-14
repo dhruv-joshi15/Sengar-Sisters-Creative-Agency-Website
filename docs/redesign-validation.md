@@ -1,0 +1,16 @@
+# Redesign validation
+
+Production TypeScript compilation and `npm run build` pass. Browser suite covers 375, 390, 430, 768, 1024 and 1440 pixels in Light and Dark; zero horizontal overflow; founder order; uncropped Aditi portrait loading; seven compact original contact-sheet cards and photography filtering; all eight chapters and page-bottom Contact activation; contact icon destinations and WhatsApp encoded draft; theme persistence and System media-query response; keyboard channel tabs; mobile navigation; service accordion; local inquiry validation. Browser console and page-error checks are included.
+
+Reviewed hero, About, Work, Results and Contact screenshots at 1440 and 390 pixels in both themes. Generated studio image is explicitly labelled, both anonymous creatives are visible on mobile, and source portfolio images are kept separate from the visualisation.
+
+Native scroll benchmark after caching the backdrop: Chromium, 90 requestAnimationFrame-driven forward/backward native scroll samples per section (Home, Work, Results), at 1440px / DPR1 and 390px / DPR3. All six runs: median 16.7ms, p95 at most 16.8ms, zero samples over 34ms. These are local measurements, not a guarantee for all devices. The celestial artwork is raster-cached by the browser from local Light/Dark SVG image surfaces, rather than redrawn as nested DOM gradients. Opaque Results suppresses its painting while it fills the viewport. Studio photo loads eagerly and is promoted for transform compositing. Reduced motion disables spatial travel and shows the final follower count.
+
+Apoorva’s supplied original portrait is now installed. The email address remains pending. Contact remains usable through the supplied phone, WhatsApp and Instagram. Inquiry remains a clearly labelled frontend preview, not a backend submission.
+
+Latest pass also checks the studio-first opening has no client image, Apoorva’s source image loads, the growth visual has no reel thumbnail, the 8,000→21,300 animation completes and replays, reduced motion shows its final count, and mobile reel frames remain under 150px wide.
+
+## Liquid-glass and twin-phone update · 15 September 2026
+TypeScript and production build pass. Five browser checks pass, including both themes at 375, 390, 430, 768, 1024, and 1440; no horizontal overflow or browser-console errors were reported. Real portrait loading, seven original work links, filters, chapter navigation, theme persistence/system preference, keyboard navigation, inquiry preview, and follower replay/reduced motion were checked. Hero, About, Work, Results and Contact screenshots were reviewed. New phone visuals independently illustrate the public snapshots, not live analytics.
+
+Final scroll audit: 90 native animation-frame-scheduled forward/backward scroll samples per Home, Work and Results at 1440/DPR1 and 390/DPR3. Median frame time was approximately 16.7 ms in all six runs. Mobile p95 was ≤16.8 ms with zero samples above 34 ms; desktop Work p95 was 16.8 ms, Home/Results p95 about 33.4 ms, with two Home samples above 34 ms. These are local headless-browser observations, not a guarantee for all hardware. Desktop optical blur is bounded to the glass card header; mobile retains the low-radius card blur. Figure layers are tightly cropped cached SVG textures to reduce 3D compositing cost.
