@@ -10,10 +10,24 @@ export type InstagramWorld = {
  id:'studio'|'food'|'weddings'|'crispy'; name:string; handle:string; url:string; avatar:string;
  eyebrow:string; title:string; emphasis:string; description:string; note:string;
  services:string[]; posts:InstagramPost[];
- reaction:{handle:string;quote:string;postId:string};
+ comments:{handle:string;quote:string;url:string}[];
 };
-export const instagramChecked='14 Sep 2026';
+export const instagramChecked='14–15 Sep 2026';
 export const instagramWorlds:InstagramWorld[]=[
+{
+  id:'crispy',name:'The crispy edit',handle:'@foodby_crispygirl',url:'https://www.instagram.com/foodby_crispygirl/',avatar:'/images/instagram/crispy-avatar.jpg',
+  eyebrow:'A NEW PLACE. A NEW FEELING.',title:'Good places.',emphasis:'Even better stories.',
+  description:'Apoorva’s food channel is a little invitation to step out, look closer and find somewhere lovely. Café discoveries, dinner moods and dessert stops, told through atmospheric reels.',
+  note:'Apoorva Sengar’s food account, managed by @_sengarsisters. A personal eye on cafés, dining and new places around Raipur.',
+  services:['Café discoveries','Dining reels','Food & atmosphere'],
+  posts:[
+   {id:'maira',title:'A little wilderness after dark',kind:'reel',url:'https://www.instagram.com/reel/DT4fjKQiMaB/',image:'/images/instagram/crispy-DT4fjKQiMaB.jpg',alt:'Warm-lit resort architecture and a pool at Maira Serai, Kanha',credit:'@thatcrispygirl · Apoorva’s resort reel'},
+   {id:'javer',title:'An invitation to look closer',kind:'reel',url:'https://www.instagram.com/reel/DUNO5nHAGfe/',image:'/images/instagram/crispy-DUNO5nHAGfe.jpg',alt:'Warm café pendant lights above a dessert display in the Javer India reel',credit:'@foodby_crispygirl · Javer India',likes:320,comments:24},
+   {id:'dessert-stops',title:'A little something sweet',kind:'reel',url:'https://www.instagram.com/foodby_crispygirl/reel/DX_Se63MY0s/',image:'/images/instagram/crispy-desserts-hd.jpg',alt:'Sculptural ivory ceiling pieces above the illuminated Rasvi restaurant sign',credit:'@foodby_crispygirl · Dessert-place hopping',likes:226,comments:0}
+  ],
+  comments:[{handle:'@lifewithlovelee',quote:'This place knows how to serve happiness',url:'https://www.instagram.com/reel/DUNO5nHAGfe/'},{handle:'@wajo.kafe',quote:'Looks good, would definitely try them out..',url:'https://www.instagram.com/reel/DZCLac9sDlV/'},{handle:'@your_redwine',quote:'One of the best property 🧚🤍',url:'https://www.instagram.com/reel/DT4fjKQiMaB/'}]
+ },
+
  {
   id:'studio',name:'The studio',handle:'@_sengarsisters',url:'https://www.instagram.com/_sengarsisters/',avatar:'/images/instagram/studio-avatar.jpg',
   eyebrow:'BRANDS WITH A POINT OF VIEW',title:'A little detail.',emphasis:'A lasting impression.',
@@ -25,7 +39,7 @@ export const instagramWorlds:InstagramWorld[]=[
    {id:'jewellery',title:'Jewellery with a personal touch',kind:'reel',url:'https://www.instagram.com/arham_imitation_raipur/reel/DWUCwHfMB8O/',image:'/images/instagram/studio-jewellery-hd.jpg',alt:'A jewellery retailer presenting the handcrafted carnival collection',credit:'@arham_imitation_raipur × @_sengarsisters',likes:789,comments:155},
    {id:'emotions',title:'An everyday kind of luxury',kind:'reel',url:'https://www.instagram.com/emotionsbydarshanofficial/reel/DYxMbonJWjR/',image:'/images/instagram/studio-emotions-hd.jpg',alt:'Apoorva introducing imitation jewellery at Emotions by Darshan',credit:'@emotionsbydarshanofficial · Studio collaboration',likes:148,comments:19}
   ],
-  reaction:{handle:'@_tushar_dewangan',quote:'Apoorva day by day 📈 ⬆️\nEditing, bgm, voice 🔥🔥 Keep growing yrr ❤️',postId:'bags'}
+  comments:[{handle:'@_tushar_dewangan',quote:'Apoorva day by day 📈 ⬆️ Editing, bgm, voice 🔥🔥 Keep growing yrr ❤️',url:'https://www.instagram.com/reel/DZC7CndtFUQ/'},{handle:'@explorewithsparsh',quote:'Kya baat hai 👏👏',url:'https://www.instagram.com/reel/DZC7CndtFUQ/'},{handle:'@_officialpriyamandal',quote:'Wwwwoooww😮🔥',url:'https://www.instagram.com/reel/DYxMbonJWjR/'}]
  },
  {
   id:'food',name:'The food edit',handle:'@your_foodieredwine',url:'https://www.instagram.com/your_foodieredwine/',avatar:'/images/instagram/food-avatar.jpg',
@@ -38,7 +52,7 @@ export const instagramWorlds:InstagramWorld[]=[
    {id:'underdoggs',title:'An atmosphere worth discovering',kind:'reel',url:'https://www.instagram.com/foodby_crispygirl/reel/DUbCvtFDAl_/',image:'/images/instagram/food-underdoggs-hd.jpg',alt:'An atmospheric restaurant lounge with dark interiors, warm lighting and yellow seating',credit:'@foodby_crispygirl · Food-channel collaboration',likes:1341,comments:12},
    {id:'koya',title:'A table worth coming back to',kind:'photo',url:'https://www.instagram.com/your_foodieredwine/p/DIThsQTsil6/',image:'/images/instagram/food-koya-hd.jpg',alt:'Green dumplings in a bamboo steamer with dipping sauces at Koya',credit:'@your_foodieredwine · Koya, Raipur',likes:11,comments:2}
   ],
-  reaction:{handle:'@_yukti_ydv',quote:'The ambience yrr😍😍',postId:'underdoggs'}
+  comments:[{handle:'@_yukti_ydv',quote:'The ambience yrr😍😍',url:'https://www.instagram.com/reel/DUbCvtFDAl_/'},{handle:'@lifewithlovelee',quote:"It's beautiful 😍😍😍",url:'https://www.instagram.com/reel/DUbCvtFDAl_/'},{handle:'@neeraj.salam',quote:'Yummy 😋',url:'https://www.instagram.com/p/DIThsQTsil6/'}]
  },
  {
   id:'weddings',name:'The wedding diary',handle:'@shaadireelriwaz',url:'https://www.instagram.com/shaadireelriwaz/',avatar:'/images/instagram/weddings-avatar.jpg',
@@ -51,20 +65,8 @@ export const instagramWorlds:InstagramWorld[]=[
    {id:'brotherhood',title:'The people who make the day',kind:'reel',url:'https://www.instagram.com/shaadireelriwaz/reel/DaqaeFyiCs3/',image:'/images/instagram/wedding-brotherhood-hd.jpg',alt:'Two wedding guests in burgundy and black suits sharing a playful moment',credit:'@shaadireelriwaz · Wedding BTS',likes:139,comments:13},
    {id:'bridal-details',title:'The details before “I do”',kind:'reel',url:'https://www.instagram.com/_suri_la_rishta_/reel/DaaClEetKuf/',image:'/images/instagram/wedding-details-hd.jpg',alt:'Bridal jewellery arranged on a vivid pink outfit beside a golden Buddha sculpture',credit:'@_suri_la_rishta_ · Shot by @shaadireelriwaz',likes:160,comments:7}
   ],
-  reaction:{handle:'@shritikakochar',quote:'Prettiest Bride🧿❤️',postId:'bridal-details'}
+  comments:[{handle:'@shritikakochar',quote:'Prettiest Bride🧿❤️',url:'https://www.instagram.com/reel/DaaClEetKuf/'},{handle:'@_priyal_luniya_',quote:'gorgeous bride 👰🫠',url:'https://www.instagram.com/reel/DaaClEetKuf/'},{handle:'@jain.bhavna',quote:'Cuties 😍',url:'https://www.instagram.com/reel/DaqaeFyiCs3/'}]
  }
- ,{
-  id:'crispy',name:'The crispy edit',handle:'@foodby_crispygirl',url:'https://www.instagram.com/foodby_crispygirl/',avatar:'/images/instagram/crispy-avatar.jpg',
-  eyebrow:'A NEW PLACE. A NEW FEELING.',title:'Good places.',emphasis:'Even better stories.',
-  description:'Apoorva’s food channel is a little invitation to step out, look closer and find somewhere lovely. Café discoveries, dinner moods and dessert stops, told through atmospheric reels.',
-  note:'Apoorva Sengar’s food account, managed by @_sengarsisters. A personal eye on cafés, dining and new places around Raipur.',
-  services:['Café discoveries','Dining reels','Food & atmosphere'],
-  posts:[
-   {id:'soir',title:'An afternoon at Soir',kind:'reel',url:'https://www.instagram.com/foodby_crispygirl/reel/Da9t7uvMat3/',image:'/images/instagram/crispy-soir-hd.jpg',alt:'Warm parasols above wicker chairs and café tables surrounded by plants at Soir by the Lush',credit:'@foodby_crispygirl · Soir by the Lush',likes:118,comments:1},
-   {id:'sunday-dinner',title:'A Sunday worth romanticising',kind:'reel',url:'https://www.instagram.com/foodby_crispygirl/reel/DavWNP1MpGi/',image:'/images/instagram/crispy-sunday-hd.jpg',alt:'A colourful framed portrait and warm restaurant lighting from a Sunday café-hopping reel',credit:'@foodby_crispygirl · Sunday café hopping',likes:51,comments:0},
-   {id:'dessert-stops',title:'A little something sweet',kind:'reel',url:'https://www.instagram.com/foodby_crispygirl/reel/DX_Se63MY0s/',image:'/images/instagram/crispy-desserts-hd.jpg',alt:'Sculptural ivory ceiling pieces above the illuminated Rasvi restaurant sign',credit:'@foodby_crispygirl · Dessert-place hopping',likes:226,comments:0}
-  ],
-  reaction:{handle:'@gvicky76',quote:'Must try...',postId:'soir'}
- }
+
 ];
 export const defaultInstagramWorld='crispy';

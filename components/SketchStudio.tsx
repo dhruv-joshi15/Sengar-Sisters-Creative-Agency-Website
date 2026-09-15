@@ -7,8 +7,8 @@ export function SketchStudio({progress,reduced}:{progress:MotionValue<number>;re
  return <div className="sketch-studio natural-studio" role="img" aria-label="Realistic contour illustration of two women creatives, one looking through a camera and one naturally bending to adjust a tripod">
   <span className="sketch-topline">THE ART OF WORKING TOGETHER</span>
   <div className="natural-studio-space" aria-hidden="true"><div className="natural-studio-orbit"/>
-   <motion.div className="natural-figure natural-photographer" style={reduced?undefined:{x:leftX,rotate:leftRotate}}/>
-   <motion.div className="natural-figure natural-director" style={reduced?undefined:{rotate:rightRotate,y:rightY}}/>
+   <motion.div className="natural-figure natural-photographer" whileHover={reduced?undefined:{x:-15,rotate:-3}} style={reduced?undefined:{x:leftX,rotate:leftRotate}}/>
+   <motion.div className="natural-figure natural-director" whileHover={reduced?undefined:{x:12,rotate:3,y:-7}} style={reduced?undefined:{rotate:rightRotate,y:rightY}}/>
   </div><div className="sketch-caption"><em>Two minds. One beautiful frame.</em><span>AN ARTISTIC STUDIO IMPRESSION ↘</span></div>
  </div>
 }

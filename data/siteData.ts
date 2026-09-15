@@ -12,6 +12,7 @@ export const services = [
  ['Videography','Your story, in motion. Thoughtfully shot films that bring the texture of your brand to life.'],
  ['Photoshoots','From moodboard to magic. Art direction, styling and shoot planning with a cohesive vision.'],
  ['Branding & Logo Design','An identity that feels like you. Distinctive marks, palettes and visual systems built to belong together.'],
+ ['Web Designing','Digital spaces with a distinct point of view, designed to feel intuitive, memorable and unmistakably yours.'],
  ['Graphic Design','Good ideas, beautifully arranged. Expressive design across digital and print.'],
  ['Social Media Creatives','A feed with a feeling. Platform-ready graphics that balance consistency with fresh ideas.'],
  ['Editing & Post Production','The finishing touch. Colour, rhythm, sound and detail that make the final cut sing.']
